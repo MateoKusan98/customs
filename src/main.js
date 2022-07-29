@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import CustomSelect from './components/CustomSelect';
+const app = createApp(App);
 
-createApp(App).mount('#app')
+app.component('custom-select', CustomSelect);
+app.mount('#app');

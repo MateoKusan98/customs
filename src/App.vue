@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <custom-select :options="selectOptions" @callback="test" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      selectOptions: [
+        { labelName: 'Net 1 Day', inputValue: 1, name: 'days' },
+        { labelName: 'Net 7 Day', inputValue: 7, name: 'days' },
+        { labelName: 'Net 14 Day', inputValue: 14, name: 'days' },
+        { labelName: 'Net 30 Day', inputValue: 30, name: 'days' },
+      ],
+    };
+  },
+  methods: {
+    test(value, label, name) {
+      console.log(value, label, name);
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './assets/sass/index.scss';
 </style>
